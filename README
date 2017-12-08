@@ -5,6 +5,15 @@ DESCARWIN is concerned with the hybridization of Descartes (AI planning) and Dar
 
 Here are the steps to build the project:
 
+----------
+DEPENDENCY
+----------
+
+Install the following dependencies before building the project:
+
+libgmp3-dev
+libncurses5-dev
+
 ------------
 COMMON STEPS
 ------------
