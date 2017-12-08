@@ -6,7 +6,7 @@ from os import system
 def readIntInRange( low, high ):
     while True:
         try:
-            n = int( raw_input('Votre choix: ') )
+            n = int( raw_input('Your choice: ') )
             if n >= low and n <= high:
                 return n
         except Exception:
@@ -21,7 +21,7 @@ cd ..
 """
 
 options=[
-    ("Choisissez votre mode de compilation :",
+    ("Choose your compilation mode :",
         ["release", "debug"],
         ["MODE", "BUILD_FLAGS"],
         [
@@ -29,15 +29,15 @@ options=[
             ["", "-DCMAKE_BUILD_TYPE=Debug"]
         ]
     ),
-    ("Voulez-vous utiliser OpenMP avec CPT ?",
-        ["oui", "non"],
+    ("Do you want to use OpenMP with CPT ?",
+        ["yes", "no"],
         ["CPT_OMP"],
         [
             ["-DCPT_WITH_OMP=1", ""]
         ]
     ),
-    ("Voulez-vous utiliser OpenMP avec DAE ?",
-        ["oui", "non"],
+    ("Do you want to use OpenMP with DAE ?",
+        ["yes", "no"],
         ["DAE_OMP"],
         [
             ["-DDAE_WITH_OMP=1", ""]
@@ -65,22 +65,22 @@ del responses['CPT_OMP']
 del responses['DAE_OMP']
 del responses['BUILD_FLAGS']
 
-print "\n\nScript bash correspondant : "
+print "\n\nCorresponding bash script : "
 print PATTERN % responses
 
-print "\nVoulez vous enregistrer le script dans un fichier ou bien l'exécuter directement ?"
-print "1) Enregistrer"
-print "2) Exécuter"
-print "3) Ne rien faire et quitter"
+print "\nDo you want to save the script to a file or execute it directly ?"
+print "1) Record"
+print "2) Execute"
+print "3) Do nothing and quit"
 choice = readIntInRange( 1, 3 )
 
 if choice == 1:
-    filename = raw_input("Choisissez un nom de fichier: (build.sh par défaut)")
+    filename = raw_input("Choose a file name: (build.sh by default)")
     if filename == "":
         filename = "build.sh"
     script = file( filename, 'w' )
     script.write( PATTERN % responses )
     script.close()
-    print "N'oubliez pas d'effectuer un chmod +x pour pouvoir lancer le script."
+    print "Do not forget to do a chmod + x to start the script."
 elif choice == 2:
     system( PATTERN % responses )
