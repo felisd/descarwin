@@ -13,6 +13,7 @@ Install the following dependencies before building the project:
 
 libgmp3-dev
 libncurses5-dev
+ParadisEO (from https://github.com/felisd/paradiseo.git)
 
 ------------
 COMMON STEPS
